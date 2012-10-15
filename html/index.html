@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">	
+<meta charset="utf-8">
+<title>space commander</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" type="text/css" href="../css/styles.css">
+</head>
+<body>
+	<h1>space commander</h1>
+	<canvas id="game" width=500 height=500></canvas>
+	<div class="instructions">
+		<h2>controls</h2>
+		<ul>
+			<li>left arrow - left</li>
+			<li>right arrow - right</li>
+			<li>spacebar - fire</li>
+			<li>down arrow - back</li>
+			<li>up arrow - forward</li>
+		</ul>
+	</div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script>var JE = window.JE || {};</script>
+	<script src="../js/game.js"></script>
+	<script>
+		(new JE.SpaceCommander('#game'));
+	</script>
+</body>
+</html>	

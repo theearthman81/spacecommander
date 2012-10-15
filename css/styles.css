@@ -1,0 +1,26 @@
+@font-face {
+	font-family: zian;
+	src: url('Zian free promo.ttf');
+}
+body {
+	margin: 10px;
+	font-family: Lucida Console, Monaco5, monospace;
+	font-size: 13px;
+	background-color: #555;
+	color: #D9D919;
+}
+h1, h2 {
+	font-family: zian, Lucida Console, Monaco5, monospace;
+	text-align: center;
+}
+#game {
+	margin: 0 auto;
+	display: block;
+	border: 1px solid #D9D919;
+}
+ul {
+	list-style-type: square;
+	font-size: 16px;
+	margin: 0 auto;
+	width: 500px;
+}
