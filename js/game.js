@@ -48,6 +48,12 @@
 	        case 40: // down
 				this.y += SpaceCommander.ACC;
 	          	break;
+			case 80: // pause
+				this._paused = !this._paused;
+				if (!this.paused) {
+					this.loop();
+				}
+				break;
 	      }
 		  return false;
 	};
@@ -58,8 +64,8 @@
 
 	SpaceCommander.prototype._createStars = function() {
 		var multiplyer = this._totalHeight;
-		for (var i = 0, l = 200; i < l; i++) {
-			if (i > 30) {
+		for (var i = 0, l = 500; i < l; i++) {
+			if (i > 50) {
 				multiplyer = -multiplyer;
 			}
 			this._stars.push({x: this.width * Math.random(), y: multiplyer * Math.random(), alpha: Math.random(), size: 1});
@@ -86,7 +92,7 @@
 
 	SpaceCommander.prototype._updateBullets = function() {
 		this._bullets.forEach(function(bullet, i) {
-			bullet.y -= 2;
+			bullet.y -= 4;
 			if (bullet.y < 0) {
 				this._bullets.splice(i, 1);
 			}
@@ -113,11 +119,23 @@
 		this.y = Math.max(Math.min(this.y, this.height - SpaceCommander.SHIP_HEIGHT), 0);
 	
 		this._context.drawImage(this._ship, this.spriteX, 0, SpaceCommander.SHIP_WIDTH, SpaceCommander.SHIP_HEIGHT, this.x, this.y, SpaceCommander.SHIP_WIDTH, SpaceCommander.SHIP_HEIGHT);
-	
-		window.requestAnimFrame(this.loop.bind(this));	
+		
+		// var baddy = new Image();
+		// 	baddy.src= '../img/enemies.png';
+		// 	this._context.drawImage(baddy, 204, 182, 47, 20, 20, 20, 47, 20);
+		// 	
+		// 	this._context.drawImage(baddy, 152, 435, 18, 25, 100, 20, 18, 25);
+		
+		var baddy = new Image();
+		baddy.src= '../img/boss.png';
+		this._context.drawImage(baddy, 128, 629, 224, 163, 20, 20, 224, 163);
+		
+		if (!this._paused) {
+			window.requestAnimFrame(this.loop.bind(this));	
+		}
 	};
 
-	SpaceCommander.ACC = 14;
+	SpaceCommander.ACC = 12;
 
 	SpaceCommander.SCREEN_ACC = 1.4;
 
